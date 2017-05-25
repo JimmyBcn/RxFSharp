@@ -8,6 +8,8 @@ module Main =
     open System.Reactive.Linq
     open RxFSharp.Sequences
 
+    // ** Visit rxmarbles.com !!! **
+    // ** Run the samples you are interested in **
     [<EntryPoint>]
     let main argv = 
         Console.WriteLine("** Simple Range Sequence **")
@@ -28,7 +30,12 @@ module Main =
         Console.WriteLine("** Cancellable Sequence **")
         SampleCancellable<int, NonBlockingCancellableSequence>.Execute |> ignore
 
-        // Coming soon
-        //Console.WriteLine("** Hot and Cold Sequences **")
-        //Sample<int, HotColdSequence>.Execute |> ignore
+        Console.WriteLine("** Cold Sequence **")
+        SampleCold<int, ColdSequence>.Execute |> ignore
+
+        Console.WriteLine("** Hot Sequence **")
+        SampleHot<int, HotSequence>.Execute |> ignore
+
+        Console.WriteLine("** Cold shared Sequence **")
+        SampleColdShared<int, ColdSharedSequence>.Execute |> ignore
         0    

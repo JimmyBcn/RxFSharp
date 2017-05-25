@@ -54,16 +54,20 @@
     <None Include="Script.fsx" />
     <Content Include="packages.config" />
     <Compile Include="ISequence.fs" />
-    <Compile Include="ICancellableSequence.fs" />
     <Compile Include="Sequence.fs" />
+    <Compile Include="ICancellableSequence.fs" />
     <Compile Include="CancellableSequence.fs" />
+    <Compile Include="IConnectableSequence.fs" />
+    <Compile Include="ConnectableSequence.fs" />
     <Compile Include="RangeSequence.fs" />
     <Compile Include="IntervalSequence.fs" />
     <Compile Include="CombinedSequence.fs" />
     <Compile Include="BlockingSequence.fs" />
     <Compile Include="NonBlockingSequence.fs" />
     <Compile Include="NonBlockingCancellableSequence.fs" />
-    <Compile Include="HotCold.fs" />
+    <Compile Include="ColdSequence.fs" />
+    <Compile Include="HotSequence.fs" />
+    <Compile Include="ColdSharedSequence.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

@@ -4,6 +4,7 @@ open System
 open System.Reactive
 open System.Reactive.Linq
 
+    // ** This snippet allows you to start playing and experimenting with several kind of combinations of sequences
     type CombinedSequence() =
         inherit Sequence<int>()
         let FirstSequence = 
@@ -17,21 +18,21 @@ open System.Reactive.Linq
                 .Select(fun i -> (int)i * 10)
                 .TakeWhile(fun i -> i < 50)
         override this.GetObservable(_) =
-            //Uncomment for Sample - Concat
-            //let sequence = FirstSequence.Concat(SecondSequence)
-            //sequence
-            //    .Timeout(TimeSpan.FromMilliseconds((float)1200))
-            //    .Throttle(TimeSpan.FromMilliseconds((float)1200)) // While events are received within 1200 ms, they are discarded
+            // ** Uncomment for Sample - Concat **
+            let sequence = FirstSequence.Concat(SecondSequence)
+            sequence
+                //.Timeout(TimeSpan.FromMilliseconds((float)1200))
+                //.Throttle(TimeSpan.FromMilliseconds((float)1200)) // While events are received within 1200 ms, they are discarded
             
-            //Uncomment for Sample - Merge
+            // ** Uncomment for Sample - Merge **
             //let sequence = FirstSequence.Merge(SecondSequence)
             //sequence
                 //.Distinct()
 
-            //Uncomment for Sample - Zip
-            let sequence = FirstSequence.Zip(SecondSequence, fun o1 o2 -> o1 + o2)
-            sequence
+            // ** Uncomment for Sample - Zip **
+            //let sequence = FirstSequence.Zip(SecondSequence, fun o1 o2 -> o1 + o2)
+            //sequence
 
-            //Uncomment for Sample - CombineLatest
+            // ** Uncomment for Sample - CombineLatest **
             //let sequence = FirstSequence.CombineLatest(SecondSequence, fun o1 o2 -> o1 + o2)
             //sequence

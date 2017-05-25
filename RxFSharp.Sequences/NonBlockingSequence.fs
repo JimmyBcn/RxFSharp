@@ -7,6 +7,7 @@ open System.Reactive.Disposables
 open System.Threading
 open System.Threading.Tasks
 
+    // ** A Non Blocking sequence will be executed on a background thread **
     type NonBlockingSequence() =
         inherit Sequence<int>()
         override this.GetObservable(_) =
@@ -22,6 +23,5 @@ open System.Threading.Tasks
                                         with
                                             | :? Exception as ex -> o.OnError(ex) |> ignore
                                     o.OnCompleted() } 
-                            let tokenSource = new CancellationTokenSource()
                             Async.StartAsTask(task) |> ignore
                             Disposable.Empty)

@@ -7,6 +7,7 @@ open System.Reactive.Disposables
 open System.Threading
 open System.Threading.Tasks
 
+    // ** Using a CancellationTokenSource, the sequence can be cancelled (and then completed) from outside **
     type NonBlockingCancellableSequence() =
         inherit CancellableSequence<int>()
         override this.GetCancellableObservable(cts: CancellationTokenSource) =

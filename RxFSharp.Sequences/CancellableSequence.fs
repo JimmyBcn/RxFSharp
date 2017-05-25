@@ -4,6 +4,7 @@ open System
 open System.Reactive
 open System.Threading
 
+    // ** Cancelable sequence (Cold) **
     [<AbstractClass>]
     type CancellableSequence<'Tresult>() as this =
         abstract member GetCancellableObservable: CancellationTokenSource -> IObservable<'Tresult> 

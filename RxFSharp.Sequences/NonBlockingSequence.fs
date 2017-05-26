@@ -6,6 +6,7 @@ open System.Reactive.Linq
 open System.Reactive.Disposables
 open System.Threading
 open System.Threading.Tasks
+open RxFSharp.Sequences.Core
 
     // ** A Non Blocking sequence will be executed on a background thread **
     type NonBlockingSequence() =

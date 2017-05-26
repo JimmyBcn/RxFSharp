@@ -3,6 +3,7 @@
 open System
 open System.Reactive
 open System.Reactive.Linq
+open RxFSharp.Sequences.Core
 
     // ** Use this sequence snippet to start simulating an asynchronous sequence of events or playing with Rx time shifting facilities **
     type IntervalSequence() =

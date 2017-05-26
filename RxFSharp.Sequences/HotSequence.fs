@@ -5,6 +5,7 @@ open System.Reactive
 open System.Reactive.Linq
 open System.Reactive.Disposables
 open System.Threading
+open RxFSharp.Sequences.Core
 
     type HotSequence() =
         inherit ConnectableSequence<int>()

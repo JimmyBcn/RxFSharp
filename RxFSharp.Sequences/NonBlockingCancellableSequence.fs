@@ -6,6 +6,7 @@ open System.Reactive.Linq
 open System.Reactive.Disposables
 open System.Threading
 open System.Threading.Tasks
+open RxFSharp.Sequences.Core
 
     // ** Using a CancellationTokenSource, the sequence can be cancelled (and then completed) from outside **
     type NonBlockingCancellableSequence() =

@@ -53,12 +53,6 @@
     <Compile Include="AssemblyInfo.fs" />
     <None Include="Script.fsx" />
     <Content Include="packages.config" />
-    <Compile Include="ISequence.fs" />
-    <Compile Include="Sequence.fs" />
-    <Compile Include="ICancellableSequence.fs" />
-    <Compile Include="CancellableSequence.fs" />
-    <Compile Include="IConnectableSequence.fs" />
-    <Compile Include="ConnectableSequence.fs" />
     <Compile Include="RangeSequence.fs" />
     <Compile Include="IntervalSequence.fs" />
     <Compile Include="CombinedSequence.fs" />
@@ -99,6 +93,13 @@
     </Reference>
     <Reference Include="System.Windows" />
     <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RxFSharp.Sequences.Core\RxFSharp.Sequences.Core.fsproj">
+      <Name>RxFSharp.Sequences.Core</Name>
+      <Project>{3a64950d-419d-40a6-8d6f-ba5c870163e9}</Project>
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

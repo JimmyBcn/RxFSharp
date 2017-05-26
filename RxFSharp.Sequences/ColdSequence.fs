@@ -5,6 +5,7 @@ open System.Reactive
 open System.Reactive.Linq
 open System.Reactive.Disposables
 open System.Threading
+open RxFSharp.Sequences.Core
 
     // ** Creates a [COLD OBSERVABLE SEQUENCE or Observable] which starts emitting items when an observer is subscribed to (creating a disposable subscription). 
     // A subscription is not terminated unless either it is disposed nor the sequence finishes (OnCompleted) or returns an error (OnError).

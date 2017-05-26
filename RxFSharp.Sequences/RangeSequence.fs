@@ -3,6 +3,7 @@
 open System
 open System.Reactive
 open System.Reactive.Linq
+open RxFSharp.Sequences.Core
 
     // ** The simpliest sequence snippet you can use to get used to LINQ syntax and some functional features using Rx **
     type RangeSequence() =

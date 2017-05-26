@@ -3,6 +3,7 @@
 open System
 open System.Reactive
 open System.Reactive.Linq
+open RxFSharp.Sequences.Core
 
     // ** This snippet allows you to start playing and experimenting with several kind of combinations of sequences
     type CombinedSequence() =

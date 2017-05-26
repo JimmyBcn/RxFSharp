@@ -5,6 +5,7 @@ open System.Reactive
 open System.Reactive.Linq
 open System.Reactive.Disposables
 open System.Threading
+open RxFSharp.Sequences.Core
 
     // ** A Blocking sequence will block the caller thread, waiting for the sequence to finish **
     type BlockingSequence() =

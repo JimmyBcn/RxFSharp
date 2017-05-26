@@ -58,6 +58,10 @@
     <None Include="App.config" />
     <Content Include="packages.config" />
     <Compile Include="Sample.fs" />
+    <Compile Include="SampleCancellable.fs" />
+    <Compile Include="SampleCold.fs" />
+    <Compile Include="SampleHot.fs" />
+    <Compile Include="SampleColdShared.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
@@ -92,6 +96,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RxFSharp.Sequences.Core\RxFSharp.Sequences.Core.fsproj">
+      <Name>RxFSharp.Sequences.Core</Name>
+      <Project>{3a64950d-419d-40a6-8d6f-ba5c870163e9}</Project>
+      <Private>True</Private>
+    </ProjectReference>
     <ProjectReference Include="..\RxFSharp.Sequences\RxFSharp.Sequences.fsproj">
       <Name>RxFSharp.Sequences</Name>
       <Project>{2ea93d1b-e128-45d0-a914-314b910549aa}</Project>

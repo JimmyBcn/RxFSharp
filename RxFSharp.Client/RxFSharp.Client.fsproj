@@ -62,6 +62,7 @@
     <Compile Include="SampleCold.fs" />
     <Compile Include="SampleHot.fs" />
     <Compile Include="SampleColdShared.fs" />
+    <Compile Include="SampleObservableSideEffect.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
@@ -96,6 +97,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RxFSharp.Domain\RxFSharp.Domain.fsproj">
+      <Name>RxFSharp.Domain</Name>
+      <Project>{165ff28c-439f-461f-ab8a-3ec70e547c43}</Project>
+      <Private>True</Private>
+    </ProjectReference>
     <ProjectReference Include="..\RxFSharp.Sequences.Core\RxFSharp.Sequences.Core.fsproj">
       <Name>RxFSharp.Sequences.Core</Name>
       <Project>{3a64950d-419d-40a6-8d6f-ba5c870163e9}</Project>
@@ -104,6 +110,11 @@
     <ProjectReference Include="..\RxFSharp.Sequences\RxFSharp.BasicSequences.fsproj">
       <Name>RxFSharp.BasicSequences</Name>
       <Project>{2ea93d1b-e128-45d0-a914-314b910549aa}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\RxFSharp.SideEffects\RxFSharp.SideEffects.fsproj">
+      <Name>RxFSharp.SideEffects</Name>
+      <Project>{f412fc43-3a10-4e9a-9086-3eed69c32861}</Project>
       <Private>True</Private>
     </ProjectReference>
   </ItemGroup>

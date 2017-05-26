@@ -9,6 +9,10 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RxFSharp.BasicSequences", "
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RxFSharp.Sequences.Core", "RxFSharp.Sequences.Core\RxFSharp.Sequences.Core.fsproj", "{3A64950D-419D-40A6-8D6F-BA5C870163E9}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RxFSharp.SideEffects", "RxFSharp.SideEffects\RxFSharp.SideEffects.fsproj", "{F412FC43-3A10-4E9A-9086-3EED69C32861}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RxFSharp.Domain", "RxFSharp.Domain\RxFSharp.Domain.fsproj", "{165FF28C-439F-461F-AB8A-3EC70E547C43}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{3A64950D-419D-40A6-8D6F-BA5C870163E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A64950D-419D-40A6-8D6F-BA5C870163E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A64950D-419D-40A6-8D6F-BA5C870163E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F412FC43-3A10-4E9A-9086-3EED69C32861}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F412FC43-3A10-4E9A-9086-3EED69C32861}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F412FC43-3A10-4E9A-9086-3EED69C32861}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F412FC43-3A10-4E9A-9086-3EED69C32861}.Release|Any CPU.Build.0 = Release|Any CPU
+		{165FF28C-439F-461F-AB8A-3EC70E547C43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{165FF28C-439F-461F-AB8A-3EC70E547C43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{165FF28C-439F-461F-AB8A-3EC70E547C43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{165FF28C-439F-461F-AB8A-3EC70E547C43}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

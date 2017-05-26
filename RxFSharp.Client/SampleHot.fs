@@ -5,7 +5,7 @@ open System.Reactive
 open System.Reactive.Linq
 open System.Reactive.Subjects
 open System.Threading
-open RxFSharp.Sequences
+open RxFSharp.BasicSequences
 open RxFSharp.Sequences.Core
 
     type SampleHot<'Titem, 'Tsequence when 'Tsequence :> IConnectableSequence<'Titem>>() =

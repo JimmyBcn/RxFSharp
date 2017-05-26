@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RxFSharp.Client", "RxFSharp.Client\RxFSharp.Client.fsproj", "{3B0AB78A-BCDA-4F41-96B7-ED97225116A8}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RxFSharp.Sequences", "RxFSharp.Sequences\RxFSharp.Sequences.fsproj", "{2EA93D1B-E128-45D0-A914-314B910549AA}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RxFSharp.BasicSequences", "RxFSharp.Sequences\RxFSharp.BasicSequences.fsproj", "{2EA93D1B-E128-45D0-A914-314B910549AA}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RxFSharp.Sequences.Core", "RxFSharp.Sequences.Core\RxFSharp.Sequences.Core.fsproj", "{3A64950D-419D-40A6-8D6F-BA5C870163E9}"
 EndProject

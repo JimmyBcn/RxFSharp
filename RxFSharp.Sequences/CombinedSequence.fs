@@ -1,4 +1,4 @@
-﻿namespace RxFSharp.Sequences
+﻿namespace RxFSharp.BasicSequences
 
 open System
 open System.Reactive

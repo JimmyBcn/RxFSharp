@@ -6,7 +6,7 @@ module Main =
     open System
     open System.Reactive
     open System.Reactive.Linq
-    open RxFSharp.Sequences
+    open RxFSharp.BasicSequences
 
     // ** Visit rxmarbles.com !!! **
     // ** Run the samples you are interested in **

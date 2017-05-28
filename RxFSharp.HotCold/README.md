@@ -1,6 +1,6 @@
 # Hot and Cold Observables
 
-**Hot** and **cold** terms all refer about the **producer**. The producer is the object which generates the sequence of items that may be emitted by the observable.
+**Hot** and **cold** terms all refer about the **producer**. The producer is the chunk of code which generates the sequence of items that may be emitted by the observable.
 
 ## Cold observable
 

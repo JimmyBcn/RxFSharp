@@ -1,4 +1,4 @@
-﻿namespace RxFSharp.BasicSequences
+﻿namespace RxFSharp.HotCold
 
 open System
 open System.Reactive

@@ -5,7 +5,7 @@ open System.Reactive
 open System.Reactive.Linq
 open System.Reactive.Subjects
 open System.Threading
-open RxFSharp.BasicSequences
+open RxFSharp.HotCold
 open RxFSharp.Sequences.Core
 
     type SampleColdShared<'Titem, 'Tsequence when 'Tsequence :> ISequence<'Titem>>() =

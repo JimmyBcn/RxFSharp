@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RxFSharp.Client", "RxFSharp.Client\RxFSharp.Client.fsproj", "{3B0AB78A-BCDA-4F41-96B7-ED97225116A8}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RxFSharp.SideEffects", "RxFSharp.SideEffects\RxFSharp.SideEffects.fsproj", "{F412FC43-3A10-4E9A-9086-3EED69C32861}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RxFSharp.Domain", "RxFSharp.Domain\RxFSharp.Domain.fsproj", "{165FF28C-439F-461F-AB8A-3EC70E547C43}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RxFSharp.HotCold", "RxFSharp.HotCold\RxFSharp.HotCold.fsproj", "{463735FD-1F1B-4E49-8112-24CD402C4E82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{165FF28C-439F-461F-AB8A-3EC70E547C43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{165FF28C-439F-461F-AB8A-3EC70E547C43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{165FF28C-439F-461F-AB8A-3EC70E547C43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{463735FD-1F1B-4E49-8112-24CD402C4E82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{463735FD-1F1B-4E49-8112-24CD402C4E82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{463735FD-1F1B-4E49-8112-24CD402C4E82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{463735FD-1F1B-4E49-8112-24CD402C4E82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

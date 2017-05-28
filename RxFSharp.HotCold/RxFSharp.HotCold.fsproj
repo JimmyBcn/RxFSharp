@@ -5,14 +5,14 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>2ea93d1b-e128-45d0-a914-314b910549aa</ProjectGuid>
+    <ProjectGuid>463735fd-1f1b-4e49-8112-24cd402c4e82</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>RxFSharp.Sequences</RootNamespace>
-    <AssemblyName>RxFSharp.Sequences</AssemblyName>
+    <RootNamespace>RxFSharp.HotCold</RootNamespace>
+    <AssemblyName>RxFSharp.HotCold</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <TargetFSharpCoreVersion>4.4.1.0</TargetFSharpCoreVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Name>RxFSharp.BasicSequences</Name>
+    <Name>RxFSharp.HotCold</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,12 +53,9 @@
     <Compile Include="AssemblyInfo.fs" />
     <None Include="Script.fsx" />
     <Content Include="packages.config" />
-    <Compile Include="RangeSequence.fs" />
-    <Compile Include="IntervalSequence.fs" />
-    <Compile Include="CombinedSequence.fs" />
-    <Compile Include="BlockingSequence.fs" />
-    <Compile Include="NonBlockingSequence.fs" />
-    <Compile Include="NonBlockingCancellableSequence.fs" />
+    <Compile Include="ColdSequence.fs" />
+    <Compile Include="HotSequence.fs" />
+    <Compile Include="ColdSharedSequence.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
@@ -95,11 +92,6 @@
     <ProjectReference Include="..\RxFSharp.Sequences.Core\RxFSharp.Sequences.Core.fsproj">
       <Name>RxFSharp.Sequences.Core</Name>
       <Project>{3a64950d-419d-40a6-8d6f-ba5c870163e9}</Project>
-      <Private>True</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\RxFSharp.SideEffects\RxFSharp.SideEffects.fsproj">
-      <Name>RxFSharp.SideEffects</Name>
-      <Project>{f412fc43-3a10-4e9a-9086-3eed69c32861}</Project>
       <Private>True</Private>
     </ProjectReference>
   </ItemGroup>

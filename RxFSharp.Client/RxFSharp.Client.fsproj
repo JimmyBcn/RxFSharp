@@ -102,6 +102,11 @@
       <Project>{165ff28c-439f-461f-ab8a-3ec70e547c43}</Project>
       <Private>True</Private>
     </ProjectReference>
+    <ProjectReference Include="..\RxFSharp.HotCold\RxFSharp.HotCold.fsproj">
+      <Name>RxFSharp.HotCold</Name>
+      <Project>{463735fd-1f1b-4e49-8112-24cd402c4e82}</Project>
+      <Private>True</Private>
+    </ProjectReference>
     <ProjectReference Include="..\RxFSharp.Sequences.Core\RxFSharp.Sequences.Core.fsproj">
       <Name>RxFSharp.Sequences.Core</Name>
       <Project>{3a64950d-419d-40a6-8d6f-ba5c870163e9}</Project>

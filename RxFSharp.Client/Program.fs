@@ -13,6 +13,7 @@ module Main =
     // ** Run the samples you are interested in **
     [<EntryPoint>]
     let main argv = 
+        // ** Basic sequences samples **
         Console.WriteLine("** Simple Range Sequence **")
         Sample<int, RangeSequence>.Execute |> ignore
 
@@ -31,15 +32,25 @@ module Main =
         Console.WriteLine("** Cancellable Sequence **")
         SampleCancellable<int, NonBlockingCancellableSequence>.Execute |> ignore
 
+        // ** Hot and Cold sequences samples **
+        Console.WriteLine("** Internal Producer Sequence (cold) **")
+        SampleProducer<int, InternalSequence>.Execute |> ignore
+
+        Console.WriteLine("** External Producer Sequence (hot) **")
+        SampleProducer<int, ExternalSequence>.Execute |> ignore
+
         Console.WriteLine("** Cold Sequence **")
         SampleCold<int, ColdSequence>.Execute |> ignore
 
         Console.WriteLine("** Hot Sequence **")
-        SampleHot<int, HotSequence>.Execute |> ignore
+        SampleHot<int, WarmingSequence>.Execute |> ignore
 
         Console.WriteLine("** Cold shared Sequence **")
-        SampleColdShared<int, ColdSharedSequence>.Execute |> ignore
+        SampleCold<int, CoolingSequence>.Execute |> ignore
 
-        Console.WriteLine("** Side effects on observable sequence **")
-        SampleObservableSideEffect.Execute |> ignore
+        // ** Subjects samples **
+
+        // ** Side effects sequences samples **
+        //Console.WriteLine("** Side effects on observable sequence **")
+        //SampleObservableSideEffect.Execute |> ignore
         0    

@@ -7,7 +7,7 @@ open System.Reactive.Disposables
 open System.Threading
 open RxFSharp.Sequences.Core
 
-    type HotSequence() =
+    type WarmingSequence() =
         inherit ConnectableSequence<int>()
         override this.GetObservable(_) =
             Observable

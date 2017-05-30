@@ -7,7 +7,7 @@ open System.Reactive.Disposables
 open System.Threading
 open RxFSharp.Sequences.Core
 
-    type ColdSharedSequence() =
+    type CoolingSequence() =
         inherit Sequence<int>()
         override this.GetObservable(_) =
             Observable

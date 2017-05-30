@@ -19,7 +19,7 @@ A hot observable is represented by the _IConnectableObservable_ interface, which
 
 Rx provide several ways to warm up a cold observable. In that way, the first observer who subscribes to the observable is the one that lauches the producer (so that it starts emitting items). However, observers will not receive any item unless the **Connect** method of the observable is executed. Subsequent observers subscribing to the hot observable will then receive the same sequence from the moment they subscribe. The observable will continue emitting evens regardless there is any observer listing.
 
-To warm up a cold observable it is usual to use the **Publish** operator.
+To warm up a cold observable it is usual to use the **Publish** operator. Other useful operator for specefic needs are **PublisLast**, **Replay** and **Multicast**
 
 ## Cooling a hot observable
 

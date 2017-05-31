@@ -61,7 +61,7 @@
     <Compile Include="SampleCancellable.fs" />
     <Compile Include="SampleCold.fs" />
     <Compile Include="SampleHot.fs" />
-    <Compile Include="SampleColdShared.fs" />
+    <Compile Include="SampleProducer.fs" />
     <Compile Include="SampleObservableSideEffect.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>

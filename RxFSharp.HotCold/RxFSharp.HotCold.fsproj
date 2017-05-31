@@ -53,9 +53,12 @@
     <Compile Include="AssemblyInfo.fs" />
     <None Include="Script.fsx" />
     <Content Include="packages.config" />
+    <Compile Include="Producer.fs" />
+    <Compile Include="ExternalSequence.fs" />
+    <Compile Include="InternalSequence.fs" />
     <Compile Include="ColdSequence.fs" />
-    <Compile Include="HotSequence.fs" />
-    <Compile Include="ColdSharedSequence.fs" />
+    <Compile Include="WarmingSequence.fs" />
+    <Compile Include="CoolingSequence.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

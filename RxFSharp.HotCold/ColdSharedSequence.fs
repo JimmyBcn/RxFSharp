@@ -26,5 +26,5 @@ open RxFSharp.Sequences.Core
 
                 // ** Cold down a [HOT OBSERVABLE SEQUENCE or ConnectableObservable] to a [COLD OBSERVABLE SEQUENCE or Observable] 
                 // but now the sequence is shared among all the subscribers.
-                // This observable uses the first observer subscription to perform the Connect() action (which starts emiting items) **
+                // This observable uses the first observer subscription to internally perform the Connect() action (which starts emiting items) **
                 .RefCount()

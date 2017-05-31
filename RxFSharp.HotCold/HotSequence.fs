@@ -24,7 +24,7 @@ open RxFSharp.Sequences.Core
                 .Repeat()
 
                 // ** Warms up the previous [COLD OBSERVABLE SEQUENCE or Observable] making it a [HOT OBSERVABLE SEQUENCE or ConnectableObservable]. 
-                // Observers can subscribe now to the sequence (creating a disposable subscription) but the sequence does not start emiting items until one of them call the Connect() action. 
+                // Observers can subscribe now to the sequence (creating a disposable subscription) but the sequence does not start emiting items until the Connect() method of the observable is executed. 
                 // Subscriptors can dispose the subscription independently, but the ConnectableObservable will remain alive if any of the subscriptions is not disposed --> Be careful with memory leaks and dispose all subscriptions.
                 // The [HOT OBSERVABLE SEQUENCE or ConnectableObservable] is SHARED among the subscribers, so all subscriptions are listening to the same sequence. **
                 .Publish()

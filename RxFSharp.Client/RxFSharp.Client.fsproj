@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>3b0ab78a-bcda-4f41-96b7-ed97225116a8</ProjectGuid>
+    <ProjectGuid>4c0150aa-e7b5-4107-beb7-ce63975d547d</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>RxFSharp.Client</RootNamespace>
     <AssemblyName>RxFSharp.Client</AssemblyName>
@@ -55,15 +55,9 @@
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="Program.fs" />
     <None Include="App.config" />
     <Content Include="packages.config" />
-    <Compile Include="Sample.fs" />
-    <Compile Include="SampleCancellable.fs" />
-    <Compile Include="SampleCold.fs" />
-    <Compile Include="SampleHot.fs" />
-    <Compile Include="SampleProducer.fs" />
-    <Compile Include="SampleObservableSideEffect.fs" />
-    <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
@@ -117,9 +111,9 @@
       <Project>{2ea93d1b-e128-45d0-a914-314b910549aa}</Project>
       <Private>True</Private>
     </ProjectReference>
-    <ProjectReference Include="..\RxFSharp.SideEffects\RxFSharp.SideEffects.fsproj">
-      <Name>RxFSharp.SideEffects</Name>
-      <Project>{f412fc43-3a10-4e9a-9086-3eed69c32861}</Project>
+    <ProjectReference Include="..\RxFSharp.Subjects\RxFSharp.Subjects.fsproj">
+      <Name>RxFSharp.Subjects</Name>
+      <Project>{55be785f-aaaa-42b2-aa39-f4ce5476a85f}</Project>
       <Private>True</Private>
     </ProjectReference>
   </ItemGroup>

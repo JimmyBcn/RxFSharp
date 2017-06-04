@@ -59,6 +59,9 @@
     <Compile Include="ColdSequence.fs" />
     <Compile Include="WarmingSequence.fs" />
     <Compile Include="CoolingSequence.fs" />
+    <Compile Include="SampleCold.fs" />
+    <Compile Include="SampleHot.fs" />
+    <Compile Include="SampleProducer.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

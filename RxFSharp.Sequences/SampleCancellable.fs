@@ -1,11 +1,10 @@
-﻿namespace RxFSharp.Client
+﻿namespace RxFSharp.BasicSequences
 
 open System
 open System.Reactive
 open System.Reactive.Linq
 open System.Reactive.Subjects
 open System.Threading
-open RxFSharp.BasicSequences
 open RxFSharp.Sequences.Core
 
     type SampleCancellable<'Titem, 'Tsequence when 'Tsequence :> ICancellableSequence<'Titem>>() =

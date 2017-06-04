@@ -5,14 +5,14 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>2ea93d1b-e128-45d0-a914-314b910549aa</ProjectGuid>
+    <ProjectGuid>d11914db-1262-448c-a226-392a00a36b52</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>RxFSharp.Sequences</RootNamespace>
-    <AssemblyName>RxFSharp.Sequences</AssemblyName>
+    <RootNamespace>RxFSharp.RxBurger</RootNamespace>
+    <AssemblyName>RxFSharp.RxBurger</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <TargetFSharpCoreVersion>4.4.1.0</TargetFSharpCoreVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Name>RxFSharp.BasicSequences</Name>
+    <Name>RxFSharp.RxBurger</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,14 +53,9 @@
     <Compile Include="AssemblyInfo.fs" />
     <None Include="Script.fsx" />
     <Content Include="packages.config" />
-    <Compile Include="RangeSequence.fs" />
-    <Compile Include="IntervalSequence.fs" />
-    <Compile Include="CombinedSequence.fs" />
-    <Compile Include="BlockingSequence.fs" />
-    <Compile Include="NonBlockingSequence.fs" />
-    <Compile Include="NonBlockingCancellableSequence.fs" />
-    <Compile Include="Sample.fs" />
-    <Compile Include="SampleCancellable.fs" />
+    <Compile Include="IngredientsProducers.fs" />
+    <Compile Include="BurgerSequence.fs" />
+    <Compile Include="IngredientsSequence.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
@@ -72,38 +67,9 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
-    <Reference Include="System.Reactive.Core">
-      <HintPath>..\packages\System.Reactive.Core.3.1.1\lib\net45\System.Reactive.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Reactive.Interfaces">
-      <HintPath>..\packages\System.Reactive.Interfaces.3.1.1\lib\net45\System.Reactive.Interfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Reactive.Linq">
-      <HintPath>..\packages\System.Reactive.Linq.3.1.1\lib\net45\System.Reactive.Linq.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Reactive.PlatformServices">
-      <HintPath>..\packages\System.Reactive.PlatformServices.3.1.1\lib\net45\System.Reactive.PlatformServices.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Reactive.Windows.Threading">
-      <HintPath>..\packages\System.Reactive.Windows.Threading.3.1.1\lib\net45\System.Reactive.Windows.Threading.dll</HintPath>
-    </Reference>
     <Reference Include="System.ValueTuple">
       <HintPath>..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
     </Reference>
-    <Reference Include="System.Windows" />
-    <Reference Include="WindowsBase" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RxFSharp.Sequences.Core\RxFSharp.Sequences.Core.fsproj">
-      <Name>RxFSharp.Sequences.Core</Name>
-      <Project>{3a64950d-419d-40a6-8d6f-ba5c870163e9}</Project>
-      <Private>True</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\RxFSharp.SideEffects\RxFSharp.SideEffects.fsproj">
-      <Name>RxFSharp.SideEffects</Name>
-      <Project>{f412fc43-3a10-4e9a-9086-3eed69c32861}</Project>
-      <Private>True</Private>
-    </ProjectReference>
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

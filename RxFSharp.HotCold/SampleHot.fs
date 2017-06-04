@@ -1,11 +1,10 @@
-﻿namespace RxFSharp.Client
+﻿namespace RxFSharp.HotCold
 
 open System
 open System.Reactive
 open System.Reactive.Linq
 open System.Reactive.Subjects
 open System.Threading
-open RxFSharp.HotCold
 open RxFSharp.Sequences.Core
 
     type SampleHot<'Titem, 'Tsequence when 'Tsequence :> IConnectableSequence<'Titem>>() =

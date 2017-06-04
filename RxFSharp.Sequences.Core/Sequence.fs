@@ -3,7 +3,7 @@
 open System
 open System.Reactive
 
-    // ** Regular sequence (Cold) **
+    // ** Regular sequence **
     [<AbstractClass>]
     type Sequence<'Tresult>() as this =
         abstract member GetObservable: _ -> IObservable<'Tresult> 

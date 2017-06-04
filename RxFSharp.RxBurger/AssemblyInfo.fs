@@ -1,4 +1,4 @@
-﻿namespace RxFSharp.Subjects.AssemblyInfo
+﻿namespace RxFSharp.RxBurger.AssemblyInfo
 
 open System.Reflection
 open System.Runtime.CompilerServices
@@ -7,11 +7,11 @@ open System.Runtime.InteropServices
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[<assembly: AssemblyTitle("RxFSharp.Subjects")>]
+[<assembly: AssemblyTitle("RxFSharp.RxBurger")>]
 [<assembly: AssemblyDescription("")>]
 [<assembly: AssemblyConfiguration("")>]
 [<assembly: AssemblyCompany("")>]
-[<assembly: AssemblyProduct("RxFSharp.Subjects")>]
+[<assembly: AssemblyProduct("RxFSharp.RxBurger")>]
 [<assembly: AssemblyCopyright("Copyright ©  2017")>]
 [<assembly: AssemblyTrademark("")>]
 [<assembly: AssemblyCulture("")>]
@@ -22,7 +22,7 @@ open System.Runtime.InteropServices
 [<assembly: ComVisible(false)>]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[<assembly: Guid("55be785f-aaaa-42b2-aa39-f4ce5476a85f")>]
+[<assembly: Guid("d11914db-1262-448c-a226-392a00a36b52")>]
 
 // Version information for an assembly consists of the following four values:
 // 

@@ -4,10 +4,10 @@ Concurrent computing is a form of computing in which **several computations are 
 
 There are several ways to enable concurrency in a .NET application:
 
-- -- **Multithreading** : consists on dividing a task into multiple smaller tasks and let multiple threads execute them concurrently in the same single CPU. The .NET introduced the **Task** type representing an abstraction for easiest multithreading coding.
-- -- **Parallel processing** : consists on applying multithreading through more than one processor. The .NET introduced the **TPL** to support parallel concurrency.
-- -- **Ashyncronous programming** : consists on using promises or callbacks to allow releaising the calling thread until the background job is finished. .NET introduced the **async/await** keywords to enable an easiest way to implement asynchronous programming.
-- -- **Reactive programming** : consists on working with asynchronous data streams. .Net provided the **Rx.NET** library as an abstraction layer that enables an easier way to provide concurrency to the incoming data streams.
+- **Multithreading** : consists on dividing a task into multiple smaller tasks and let multiple threads execute them concurrently in the same single CPU. The .NET introduced the **Task** type representing an abstraction for easiest multithreading coding.
+- **Parallel processing** : consists on applying multithreading through more than one processor. The .NET introduced the **TPL** to support parallel concurrency.
+- **Ashyncronous programming** : consists on using promises or callbacks to allow releaising the calling thread until the background job is finished. .NET introduced the **async/await** keywords to enable an easiest way to implement asynchronous programming.
+- **Reactive programming** : consists on working with asynchronous data streams. .Net provided the **Rx.NET** library as an abstraction layer that enables an easier way to provide concurrency to the incoming data streams.
 
 If a single CPU has multiple tasks (such as threads) on it, they are executing concurrently, each thread gets a portion of CPU time before yielding to another thread, even if a thread has not yet finished. Time slicing ensures that all software threads make some progress, but t his equitable distribution of hardware threads incurs overhead that can severely degrade performance. This is managed by the operative system at the low level and currently served to the programmer through several abstractions (schedulers).
 
@@ -49,13 +49,13 @@ Rx also provides **Schedulers** , which provide a rich platform for processing w
 
 The available types of Rx schedulers are:
 
-- -_ImmediateScheduler_: The specified action will start immediately.
-- -_CurrentThreadScheduler_: The specified action will be scheduled (queued) on the thread that made the original call.
-- -_DispatcherScheduler_: The specified action will be scheduled on the current Dispatcher e.g. WPF app dispatcher.
-- -_NewThreadScheduler_: The specified action will be scheduled on a newly created thread. Requesting the creation of a thread is expensive. Ideal for long operations e.g. responsive UI.
-- -_ThreadPoolScheduler_: The specified action will be scheduled on a thread pool thread. Ideal for short operations.
-- -_TaskPoolScheduler_: The specified action will be scheduled using TaskFactory from TPL. Ideal for short operations.
-- -_VirtualScheduler_: Useful for testing and debugging by emulating real time .
+- _ImmediateScheduler_: The specified action will start immediately.
+- _CurrentThreadScheduler_: The specified action will be scheduled (queued) on the thread that made the original call.
+- _DispatcherScheduler_: The specified action will be scheduled on the current Dispatcher e.g. WPF app dispatcher.
+- _NewThreadScheduler_: The specified action will be scheduled on a newly created thread. Requesting the creation of a thread is expensive. Ideal for long operations e.g. responsive UI.
+- _ThreadPoolScheduler_: The specified action will be scheduled on a thread pool thread. Ideal for short operations.
+- _TaskPoolScheduler_: The specified action will be scheduled using TaskFactory from TPL. Ideal for short operations.
+- _VirtualScheduler_: Useful for testing and debugging by emulating real time .
 
 Each of the overloads to _Schedule_ returns an _ **IDisposable** _; this way, a consumer can cancel the scheduled work.
 

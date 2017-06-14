@@ -37,13 +37,13 @@ One of the most interesting aspects of the **Observable** is how it simplifies t
 
 **Rx is single-threaded by default,** that means that the observable and observer code are carried on the same single thread. But **Rx is also a free-threaded model** , which means that you are not restricted to which thread you choose to do your work. If you do not (somehow) introduce any scheduling, callbacks will be invoked on the same thread that the OnNext/OnError/OnCompleted methods are invoked from.
 
-In Rx, it is no allowed to invoke onNext concurrently, so **a single observable cannot generate items concurrently**** from more than one thread**. The onNext cannot be invoked concurrently for several reasons. Primarily because onNext() is meant for us humans to use, and concurrency is difficult. Second reason is because some operators such as**scan **and** reduce** require sequential event propagation so that state can be accumulated on streams of events that are not both associative and commutative. A third reason is that performance is affected by synchronization overhead because all observers and operators would need to be thread-safe, even if most of the time data arrives sequentially.
+In Rx, it is no allowed to invoke onNext concurrently, so **a single observable cannot generate items concurrently from more than one thread**. The onNext cannot be invoked concurrently for several reasons. Primarily because onNext() is meant for us humans to use, and concurrency is difficult. Second reason is because some operators such as **scan** and **reduce** require sequential event propagation so that state can be accumulated on streams of events that are not both associative and commutative. A third reason is that performance is affected by synchronization overhead because all observers and operators would need to be thread-safe, even if most of the time data arrives sequentially.
 
-However, if some concurrency must be introduced, the **Rx library adds a bunch of useful operators that internally will handle concurrency issues for us** (Merge, Buffer, and so on...),providing the desired abstraction layers for us to avoid having to deal with race conditions and save threading **.** This is achieved by combining patterns commonly used in event-driven applications with constructs from functional programming that eliminate shared mutable state.
+However, if some concurrency must be introduced, the **Rx library adds a bunch of useful operators that internally will handle concurrency issues for us** (Merge, Buffer, and so on...),providing the desired abstraction layers for us to avoid having to deal with race conditions and save threading. This is achieved by combining patterns commonly used in event-driven applications with constructs from functional programming that eliminate shared mutable state.
 
 ## Schedulers
 
-Rx also provides **Schedulers** , which provide a rich platform for processing work concurrently without the need to be exposed directly to threading primitives. An _ **IScheduler** _ in Rx is used to schedule some action to be performed, either as soon as possible or at a given point in the future. They also help with common troublesome areas of concurrency such as cancellation, passing state and recursion.
+Rx also provides **Schedulers** , which provide a rich platform for processing work concurrently without the need to be exposed directly to threading primitives. An _**IScheduler**_ in Rx is used to schedule some action to be performed, either as soon as possible or at a given point in the future. They also help with common troublesome areas of concurrency such as cancellation, passing state and recursion.
 
 **Rx never adds concurrency unless it is asked to do so.** A synchronous observable would be subscribed to, emit all data **using the subscriber&#39;s thread** , and complete (if finite).However, in those cases where an scheduler is needed (for instance, when using the Buffer operator) it uses an scheduler following the **principle of least concurrency.**
 
@@ -57,7 +57,7 @@ The available types of Rx schedulers are:
 - _TaskPoolScheduler_: The specified action will be scheduled using TaskFactory from TPL. Ideal for short operations.
 - _VirtualScheduler_: Useful for testing and debugging by emulating real time .
 
-Each of the overloads to _Schedule_ returns an _ **IDisposable** _; this way, a consumer can cancel the scheduled work.
+Each of the overloads to _Schedule_ returns an _**IDisposable**_; this way, a consumer can cancel the scheduled work.
 
 **Some Schedule overloads accepts passing the state as argument**. The passed version of the state is used by the scheduler&#39;s internal workings, so what is executed by the scheduler regarding that state is not being affected   by outside changes on it.
 

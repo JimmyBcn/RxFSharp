@@ -47,14 +47,11 @@ The Rx schedulers are somehow doing work for you when you’re writing a query a
 
 The **Rx library adds a bunch of useful operators that internally will handle concurrency issues for us**, providing the desired abstraction layers for us to avoid having to deal with race conditions and save threading. When you browse the methods on the Observable class, you’ll notice a lot of them to have an overload that takes in a scheduler. This means the operator has to schedule work, maybe based on time, to get its job done. Luckily, in most cases you don’t even need to worry about this happening under the covers, thanks to the overloads that pass in a meaningful default value.
 
-This is achieved by combining patterns commonly used in event-driven applications with constructs from functional programming that eliminate shared mutable state.
-The way to think about schedulers is as a single abstraction over all the different ways that exist in the underlying platform to get work done.
-
+This is achieved by combining patterns commonly used in event-driven applications with constructs from functional programming that eliminate shared mutable state. The way to think about schedulers is as a single abstraction over all the different ways that exist in the underlying platform to get work done. Typical implementations of IScheduler forward work directly to the underlying infrastructure (such as the .NET task pool or the WinRT thread pool, to name just a few), or maintain a queue of work ordered by the time the work is due.
 
 **Rx never adds concurrency unless it is asked to do so.** A synchronous observable would be subscribed to, emit all data **using the subscriber&#39;s thread** , and complete (if finite).However, in those cases where an scheduler is needed (for instance, when using the Buffer operator) it uses an scheduler following the **principle of least concurrency.**
 
 The available types of Rx schedulers are:
-
 - _ImmediateScheduler_: The specified action will start immediately.
 - _CurrentThreadScheduler_: The specified action will be scheduled (queued) on the thread that made the original call.
 - _DispatcherScheduler_: The specified action will be scheduled on the current Dispatcher e.g. WPF app dispatcher.
@@ -63,17 +60,18 @@ The available types of Rx schedulers are:
 - _TaskPoolScheduler_: The specified action will be scheduled using TaskFactory from TPL. Ideal for short operations.
 - _VirtualScheduler_: Useful for testing and debugging by emulating real time.
 
-Each of the overloads to _Schedule_ returns an _**IDisposable**_; this way, a consumer can cancel the scheduled work.
+Each of the overloads to Schedule returns an _**IDisposable**_; this way, a consumer can cancel the scheduled work.
 
 **Some Schedule overloads accepts passing the state as argument**. The passed version of the state is used by the scheduler&#39;s internal workings, so what is executed by the scheduler regarding that state is not being affected   by outside changes on it.
 
 ## ObserveOn / SubscribeOn
-
 Rx uses scheduling to implement an easy mechanism for introducing concurrency and multithreading, these are exposed via two extension methods to IObservable&lt;T&gt; called **SubscribeOn** and **ObserveOn,** so that **it is possible to subscribe and observe on different threads**. Both methods have an overload that take an **IScheduler** (or SynchronizationContext) and return an IObservable&lt;T&gt; so you can chain methods together.By using these appropriately, we can simplify our code base, increase responsiveness and reduce the surface area of our concurrency concerns.
 
 The **ObserveOn** operator enables specifying the context in which notifications must be pushed  to observers. By default, the ObserveOn operator ensures that OnNext will be called as many times as possible on the current thread. You can use its overloads and **redirect the onNext outputs to a different context**. it is best to place ObserveOn later in the query. This is because a query will potentially filter out a lot of messages, and placing the ObserveOn operator earlier in the query would do extra work on messages that would be filtered out anyway. Calling the ObserveOn operator at the end of the query will create the least performance impact. Another advantage of specifying a scheduler type explicitly is that you can introduce concurrency for performance purposes
 
-Using the ObserveOn operator, an action is scheduled for each message that comes through the original observable sequence. This potentially changes timing information as well as puts additional stress on the system. Instead of using the ObserveOn, we can create concurrency just passing the right scheduler to the observable, using the **SubscribeOn** operator.For example, instead of observe on the UI thread (which is going to redirect each new item of the sequence to that thread) we can subscribe to the UI thread directly.Doing this, all values pushed out from the observable sequence will be originated right on the UI thread.
+Using the ObserveOn operator, an action is scheduled for each message that comes through the original observable sequence. This potentially changes timing information as well as puts additional stress on the system. 
+
+Instead of using the ObserveOn, we can create concurrency just passing the right scheduler to the observable, using the **SubscribeOn** operator.For example, instead of observe on the UI thread (which is going to redirect each new item of the sequence to that thread) we can subscribe to the UI thread directly.Doing this, all values pushed out from the observable sequence will be originated right on the UI thread.
 
 Best practices using **ObserveOn** and **SubscribeOn** operators can be defined in most cases for some scenarios.
 
@@ -82,3 +80,10 @@ In UI **Applications** the final subscriber is normally the presentation layer a
 In a **service layer** , iIf your service is reading data from a queue of some sort, consider using a dedicated **EventLoopScheduler**. This way, you can preserve order of events. If processing an item is expensive (&gt;50ms or requires I/O), then consider using a **NewThreadScheduler.**
 
 If you just need the scheduler for a **timer** , e.g. for Observable.Interval or Observable.Timer, then favor the **TaskPool**. Use the ThreadPool if the TaskPool is not available for your platform.
+
+Rx provides a set of commonly used SynchronizationContexts helpers for easy access to some contexts:
+- _CurrentDispatcher_: wraps the WPF Dispatcher, to post on the WPF UI Thread for use in WPF and Silverlight applications
+- _WindowsForms_: will use the current Windows Forms form to post back on the Windows Forms UI Thread
+- _ReactiveEventLoop_: will use a single background thread to post messages in a synchronized matter for applications that don’t have UI
+- _FromControl(Control control)_: will use control to post back on the Windows Forms UI Thread (if WinForms controls are embedded in a native UI where there is no current Form).
+- _CreateEventLoop(string name)_: will create a new background thread to post messages to for the live time of the SynchronizationContext.

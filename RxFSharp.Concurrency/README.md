@@ -39,11 +39,17 @@ One of the most interesting aspects of the **Observable** is how it simplifies t
 
 In Rx, it is no allowed to invoke onNext concurrently, so **a single observable cannot generate items concurrently from more than one thread**. The onNext cannot be invoked concurrently for several reasons. Primarily because onNext() is meant for us humans to use, and concurrency is difficult. Second reason is because some operators such as **scan** and **reduce** require sequential event propagation so that state can be accumulated on streams of events that are not both associative and commutative. A third reason is that performance is affected by synchronization overhead because all observers and operators would need to be thread-safe, even if most of the time data arrives sequentially.
 
-However, if some concurrency must be introduced, the **Rx library adds a bunch of useful operators that internally will handle concurrency issues for us** (Merge, Buffer, and so on...),providing the desired abstraction layers for us to avoid having to deal with race conditions and save threading. This is achieved by combining patterns commonly used in event-driven applications with constructs from functional programming that eliminate shared mutable state.
-
 ## Schedulers
 
-Rx also provides **Schedulers** , which provide a rich platform for processing work concurrently without the need to be exposed directly to threading primitives. An _**IScheduler**_ in Rx is used to schedule some action to be performed, either as soon as possible or at a given point in the future. They also help with common troublesome areas of concurrency such as cancellation, passing state and recursion.
+If some concurrency must be introduced, Rx provides **Schedulers**, which provide a rich platform for processing work concurrently without the need to be exposed directly to threading primitives. An IScheduler in Rx is used to schedule some action to be performed, either as soon as possible or at a given point in the future. They also help with common troublesome areas of concurrency such as cancellation, passing state and recursion.
+
+The Rx schedulers are somehow doing work for you when you’re writing a query and when you subscribe to an observable sequence. **Whenever Rx needs to introduce concurrency to get a job done, it relies on a scheduler to do so**.
+
+The **Rx library adds a bunch of useful operators that internally will handle concurrency issues for us**, providing the desired abstraction layers for us to avoid having to deal with race conditions and save threading. When you browse the methods on the Observable class, you’ll notice a lot of them to have an overload that takes in a scheduler. This means the operator has to schedule work, maybe based on time, to get its job done. Luckily, in most cases you don’t even need to worry about this happening under the covers, thanks to the overloads that pass in a meaningful default value.
+
+This is achieved by combining patterns commonly used in event-driven applications with constructs from functional programming that eliminate shared mutable state.
+The way to think about schedulers is as a single abstraction over all the different ways that exist in the underlying platform to get work done.
+
 
 **Rx never adds concurrency unless it is asked to do so.** A synchronous observable would be subscribed to, emit all data **using the subscriber&#39;s thread** , and complete (if finite).However, in those cases where an scheduler is needed (for instance, when using the Buffer operator) it uses an scheduler following the **principle of least concurrency.**
 
@@ -55,7 +61,7 @@ The available types of Rx schedulers are:
 - _NewThreadScheduler_: The specified action will be scheduled on a newly created thread. Requesting the creation of a thread is expensive. Ideal for long operations e.g. responsive UI.
 - _ThreadPoolScheduler_: The specified action will be scheduled on a thread pool thread. Ideal for short operations.
 - _TaskPoolScheduler_: The specified action will be scheduled using TaskFactory from TPL. Ideal for short operations.
-- _VirtualScheduler_: Useful for testing and debugging by emulating real time .
+- _VirtualScheduler_: Useful for testing and debugging by emulating real time.
 
 Each of the overloads to _Schedule_ returns an _**IDisposable**_; this way, a consumer can cancel the scheduled work.
 

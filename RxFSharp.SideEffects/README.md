@@ -20,4 +20,4 @@ The side effect is launched for each new emitted value. This means that, when su
 
 The **Scan** operator works as an accumulator for live sequences, so that it returns an accumulated value (or _resulting state_) for each new value (_state_) of the source sequence.
 
-Scan takes two parameters: the initial state and a closure accepting two parameters, the last state you had and the value that was just emitted. **Scan** runs that closure each time it gets a new value. That closure, by definition, cannot use any external value, and the closure returns a new state, so **each incoming state remains immutable, the closure keeps the mutated state isolated, and it creates and return a brand new reduced state.**
+Scan takes two parameters: the initial state and a closure accepting two parameters, the last state you had and the value that was just emitted. **Scan** runs that closure each time it gets a new value. That closure, by definition, cannot use any external value, and the closure returns a new state, so **each incoming state remains immutable, the closure keeps the mutable state isolated, and it creates and return a brand new reduced state.**
